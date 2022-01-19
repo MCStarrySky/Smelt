@@ -26,6 +26,7 @@ object Luck {
             e.isCancelled = true
             if (e.player.inventory.firstEmpty() == -1) {
                 e.player.sendError("Luck-Err")
+                return
             }
             val result = getRandom(getType(e.player.inventory.itemInMainHand.type)).item
             if (e.player.inventory.itemInMainHand.amount <= 1) {
@@ -40,7 +41,7 @@ object Luck {
         }
     }
 
-    fun isLuck(item: ItemStack): Boolean {
+    private fun isLuck(item: ItemStack): Boolean {
         if (item.itemMeta == null || item.itemMeta!!.lore == null || item.itemMeta!!.lore!!.isEmpty()) return false
         when (item.type) {
             Material.IRON_INGOT -> {

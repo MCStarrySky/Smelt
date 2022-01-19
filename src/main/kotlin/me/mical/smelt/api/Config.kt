@@ -60,4 +60,20 @@ class Config {
 
     }
 
+    val star_empty by lazy {
+        CONF.getString("star.empty")
+    }
+
+    val star_fill by lazy {
+        CONF.getString("star.fill")
+    }
+
+    val jd_tipLevel by lazy {
+        CONF.getInt("jd.tipLevel")
+    }
+
+    val jd_levels by lazy {
+        CONF.getStringList("jd.levels")
+    }
+
 }

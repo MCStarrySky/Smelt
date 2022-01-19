@@ -20,10 +20,14 @@ Plugin-Update:
 Plugin-Dependency-Hooked: '&8[&6宝石&8] &6挂钩 &8| &7软依赖 &f{0} &7已兼容.'
 Plugin-Dependency-Abuse: '&8[&6宝石&8] &6挂钩 &8| &4试图使用未挂钩插件 &c{0}'
 
-Configuration-Auto-Reload: '检测到配置文件更改, 已自动重新载入.'
+Configuration-Auto-Reload: '&b检测到配置文件更改, 已自动重新载入.'
 
-Jd-Null: '请将要鉴定的物品放在物品栏第一格.'
+Jd: '&a鉴定成功!'
+Jd-Null: '&c请将要鉴定的物品放在物品栏第一格.'
 Jd-Err: '{0}&c无法鉴定&3{1}&c,请确认类型是对应的.'
+Jd-Exists: '&c此物品已经鉴定过了.'
+Jd-Effect: '&c有宝石效果的物品无法鉴定.'
+Jd-Fail: '&c鉴定失败!'
 
-Luck-Err: '请给背包留出空格.'
+Luck-Err: '&c请给背包留出空格.'
 Luck-Get: '&a恭喜你获得了一个&3{0}&a!!!'

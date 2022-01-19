@@ -2,7 +2,6 @@ package me.mical.smelt.util
 
 import me.mical.smelt.api.Config
 import me.mical.smelt.common.data.Item
-import org.bukkit.inventory.ItemStack
 import kotlin.random.Random
 
 /**
@@ -31,6 +30,31 @@ fun getRandom(type: String): Item {
         select -= dataMap[item]!!
         if (select < 0) {
             return item
+        }
+    }
+    return list[list.size - 1]
+}
+
+fun getJDRandom(): Int {
+    val map = hashMapOf<Int, Int>()
+    val dataMap = hashMapOf<Int, Int>()
+    Config.INSTANCE.jd_levels.forEach {
+        val level = it.split(' ')[0].toInt()
+        val chance = it.split(' ')[1].toInt()
+        map[level] = chance
+    }
+    val list = arrayListOf<Int>()
+    var chanceTotal = 0
+    map.keys.forEach {
+        list.add(it)
+        dataMap[it] = map[it]!!
+        chanceTotal += map[it]!!
+    }
+    var select = Random.nextInt(chanceTotal)
+    for (int in list) {
+        select -= dataMap[int]!!
+        if (select < 0) {
+            return int
         }
     }
     return list[list.size - 1]

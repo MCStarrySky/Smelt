@@ -1,3 +1,17 @@
+star:
+  empty: "〇"
+  fill: "۞"
+jd:
+  tipLevel: 5                    #玩家鉴定出多少星级及以上时全服通告
+  levels:                        #鉴定成功出的星级,概率
+    - "1 485"
+    - "2 700"
+    - "3 500"
+    - "4 180"
+    - "5 85"
+    - "6 35"
+    - "7 15"
+    - "8 4"
 items:
   iron:
     luck:
@@ -16,7 +30,7 @@ items:
       getchance:
       item:
         material: IRON_INGOT
-        name: "§3[鉴定]§f铁"
+        name: "§3[鉴定石]§f铁"
         lore:
           - "§5+鉴定石+"
           - "§3能鉴定铁制武器装备,上限§54§3星"
