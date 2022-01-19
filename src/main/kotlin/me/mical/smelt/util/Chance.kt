@@ -14,7 +14,7 @@ fun inChance(chance: Double): Boolean {
 }
 
 fun getRandom(type: String): Item {
-    val map = Config.itemHash["type"]!!
+    val map = Config.itemHash[type]!!
     val luck = map["luck"]!!.item
     val list = arrayListOf<Item>()
     val dataMap = hashMapOf<Item, Int>()
