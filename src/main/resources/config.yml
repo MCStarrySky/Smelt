@@ -1,0 +1,38 @@
+jd:
+  check: "&5+鉴定石+"
+  type:
+    iron:
+      chance: 70
+      max: 4
+      type: ""
+items:
+  iron:
+    luck:
+      chance: 18
+      item:
+        material: IRON_INGOT
+        name: "§3[幸运石]§f铁"
+        lore:
+          - "§5+幸运石+"
+          - "§3可以获得各种特殊的石头"
+          - "§7(右键任意方块使用)"
+  gold:
+    luck:
+      chance: 30
+      item:
+        material: GOLD_INGOT
+        name: "§3[幸运石]§f金"
+        lore:
+          - "§5+幸运石+"
+          - "§3可以获得各种特殊的石头"
+          - "§7(右键任意方块使用)"
+  diamond:
+    luck:
+      chance: 50
+      item:
+        material: DIAMOND
+        name: "§3[幸运石]§f钻石"
+        lore:
+          - "§5+幸运石+"
+          - "§3可以获得各种特殊的石头"
+          - "§7(右键任意方块使用)"

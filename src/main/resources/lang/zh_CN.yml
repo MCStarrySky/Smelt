@@ -1,0 +1,21 @@
+prefix-info: "&8[&6宝石&8] &b良好 &8| &3"
+
+Plugin-Logo:
+  - '&a_________              .__   __   '
+  - '&a /   _____/ _____   ____ |  |_/  |_ '
+  - '&a \_____  \ /     \_/ __ \|  |\   __\'
+  - '&a /        \  Y Y  \  ___/|  |_|  |  '
+  - '&a/_______  /__|_|  /\___  >____/__|  '
+  - '&a        \/      \/     \/           '
+Plugin-Loading:
+  - '&r'
+  - '&7正在加载 &6Smelt... &8{0}'
+  - '&r'
+Plugin-Enabled: '插件已加载，应用于 StarrySky 服务器。'
+Plugin-Update:
+  - '&8[&6宝石&8] &b更新 &8| &3更新 &a{0}&3 找到, 通过下方链接下载!'
+  - '&bhttps://github.com/Micalhl/TrHologram/actions'
+Plugin-Dependency-Hooked: '&8[&6宝石&8] &6挂钩 &8| &7软依赖 &f{0} &7已兼容.'
+Plugin-Dependency-Abuse: '&8[&6宝石&8] &6挂钩 &8| &4试图使用未挂钩插件 &c{0}'
+
+Configuration-Auto-Reload: '检测到配置文件更改, 已自动重新载入.'
