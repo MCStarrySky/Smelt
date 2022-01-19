@@ -8,7 +8,7 @@ import org.bukkit.inventory.ItemStack
  * @date 2022/1/19 13:05
  */
 fun checkType(item1: ItemStack, item2: ItemStack): Boolean {
-    return item1.type.name == item2.type.name
+    return getType(item1.type) == getType(item2.type)
 }
 
 fun getType(material: Material): String {
