@@ -30,7 +30,7 @@ object Smelt {
         if (isEmpty(furnace)) {
             when (e.source.type) {
                 Material.DEEPSLATE_IRON_ORE, Material.IRON_ORE, Material.RAW_IRON -> {
-                    val struct = Config.irons["luck"]
+                    val struct = Config.itemHash["iron"]!!["luck"]
                     if (struct != null) {
                         if (inChance(struct.chance.toDouble())) {
                             e.result = struct.item
@@ -38,7 +38,7 @@ object Smelt {
                     }
                 }
                 Material.DEEPSLATE_GOLD_ORE, Material.NETHER_GOLD_ORE, Material.GOLD_ORE, Material.RAW_GOLD -> {
-                    val struct = Config.golds["luck"]
+                    val struct = Config.itemHash["gold"]!!["luck"]
                     if (struct != null) {
                         if (inChance(struct.chance.toDouble())) {
                             e.result = struct.item
@@ -46,13 +46,14 @@ object Smelt {
                     }
                 }
                 Material.DEEPSLATE_DIAMOND_ORE, Material.DIAMOND_ORE -> {
-                    val struct = Config.diamonds["luck"]
+                    val struct = Config.itemHash["diamond"]!!["luck"]
                     if (struct != null) {
                         if (inChance(struct.chance.toDouble())) {
                             e.result = struct.item
                         }
                     }
                 }
+                else -> {}
             }
         } else if (isSmelt(furnace)) {
             e.isCancelled = true

@@ -1,13 +1,7 @@
-jd:
-  check: "&5+鉴定石+"
-  type:
-    iron:
-      chance: 70
-      max: 4
-      type: ""
 items:
   iron:
     luck:
+      check: "§5+幸运石+"
       chance: 18
       item:
         material: IRON_INGOT
@@ -16,8 +10,21 @@ items:
           - "§5+幸运石+"
           - "§3可以获得各种特殊的石头"
           - "§7(右键任意方块使用)"
+    jd:
+      check: "§5+鉴定石+"
+      chance: 70
+      item:
+        material: IRON_INGOT
+        name: "§3[鉴定]§f铁"
+        lore:
+          - "§5+鉴定石+"
+          - "§3能鉴定铁制武器装备,上限§54§3星"
+          - "§7(工具无法鉴定)"
+          - "§7(待鉴定物放物品栏第一格)"
+          - "§7(右键任意方块使用)"
   gold:
     luck:
+      check: "§5+幸运石+"
       chance: 30
       item:
         material: GOLD_INGOT
@@ -26,8 +33,22 @@ items:
           - "§5+幸运石+"
           - "§3可以获得各种特殊的石头"
           - "§7(右键任意方块使用)"
+    jd:
+      check: "§5+鉴定石+"
+      chance: 70
+      max: 6
+      item:
+        material: GOLD_INGOT
+        name: "§3[鉴定石]§f金"
+        lore:
+          - "§5+鉴定石+"
+          - "§3能鉴定金制,链甲,弓武器装备,上限§56§3星"
+          - "§7(工具无法鉴定)"
+          - "§7(待鉴定物放物品栏第一格)"
+          - "§7(右键任意方块使用)"
   diamond:
     luck:
+      check: "§5+幸运石+"
       chance: 50
       item:
         material: DIAMOND
@@ -35,4 +56,17 @@ items:
         lore:
           - "§5+幸运石+"
           - "§3可以获得各种特殊的石头"
+          - "§7(右键任意方块使用)"
+    jd:
+      check: "§5+鉴定石+"
+      chance: 70
+      max: 8
+      item:
+        material: DIAMOND
+        name: "§3[鉴定石]§f钻石"
+        lore:
+          - "§5+鉴定石+"
+          - "§3能鉴定钻石武器装备,上限§58§3星"
+          - "§7(工具无法鉴定)"
+          - "§7(待鉴定物放物品栏第一格)"
           - "§7(右键任意方块使用)"

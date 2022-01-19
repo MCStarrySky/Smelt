@@ -15,9 +15,11 @@ class Config {
 
     companion object {
 
-        val irons = hashMapOf<String, Item>()
-        val golds = hashMapOf<String, Item>()
-        val diamonds = hashMapOf<String, Item>()
+        private val irons = hashMapOf<String, Item>()
+        private val golds = hashMapOf<String, Item>()
+        private val diamonds = hashMapOf<String, Item>()
+
+        val itemHash = hashMapOf<String, HashMap<String, Item>>()
 
         @Config(migrate = true, autoReload = true)
         lateinit var CONF: Configuration
@@ -26,6 +28,9 @@ class Config {
         internal var INSTANCE = me.mical.smelt.api.Config()
 
         fun init() {
+            itemHash["iron"] = irons
+            itemHash["gold"] = golds
+            itemHash["diamond"] = diamonds
             loadItems()
             CONF.onReload {
                 INSTANCE = me.mical.smelt.api.Config()
@@ -35,10 +40,24 @@ class Config {
         }
 
         private fun loadItems() {
-            if (irons.isNotEmpty()) { irons.clear() }
-            if (golds.isNotEmpty()) { golds.clear() }
-            if (diamonds.isNotEmpty()) { diamonds.clear() }
+            itemHash.forEach { (_, v) -> v.clear() }
+            listOf("iron", "gold", "diamond").forEach { type ->
+                CONF.getConfigurationSection("items.$type")?.getKeys(false)?.forEach {
+                    val check = CONF.getString("items.${type}.${it}.check")
+                    val chance = CONF.getInt("items.${type}.${it}.chance")
+                    val max = CONF.getInt("items.${type}.${it}.max")
+                    val item = CONF.getItemStack("items.${type}.${it}.item")
+                    if (check != null && item != null) {
+                        val struct = Item(check, chance, max, item)
+                        val typeHash = itemHash[type]
+                        typeHash!![it] = struct
+                        itemHash[type] = typeHash
+                    }
+                }
+            }
+            /*
             CONF.getConfigurationSection("items.iron")?.getKeys(false)?.forEach {
+                val check = CONF.getString("items.iron.${it}.chance")
                 val chance = CONF.getInt("items.iron.${it}.chance")
                 val item = CONF.getItemStack("items.iron.${it}.item")
                 if (item != null) {
@@ -62,6 +81,8 @@ class Config {
                     diamonds[it] = struct
                 }
             }
+
+             */
         }
 
     }
