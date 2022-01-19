@@ -49,11 +49,11 @@ object Jd {
                         return
                     }
                     val itemTag = item.getItemTag()
-                    if (itemTag.containsKey("jd")) {
+                    if (itemTag.getDeep("smelt.jd") != null) {
                         e.player.sendError("Jd-Exists")
                         return
                     }
-                    if (itemTag.containsKey("effects")) {
+                    if (itemTag.getDeep("smelt.effect") != null) {
                         e.player.sendError("Jd-Effect")
                         return
                     }
@@ -76,12 +76,13 @@ object Jd {
                     for (i in 1..star) {
                         starString.append(Config.INSTANCE.star_empty)
                     }
-                    itemTag.put("jd", true)
-                    itemTag.put("empty", star)
-                    item.setItemTag(itemTag)
                     val meta = item.itemMeta
                     meta?.lore = listOf(starString.toString())
                     item.itemMeta = meta
+                    itemTag.putDeep("smelt.jd", true)
+                    itemTag.putDeep("smelt.empty", star)
+                    item.setItemTag(itemTag)
+
                     e.player.updateInventory()
                     e.player.sendInfo("Jd")
                     if (star >= Config.INSTANCE.jd_tipLevel) {
