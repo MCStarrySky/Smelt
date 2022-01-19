@@ -16,29 +16,27 @@ import taboolib.platform.util.sendWarn
  */
 object Jd {
 
-    @SubscribeEvent(priority = EventPriority.HIGHEST, ignoreCancelled = true)
+    //@SubscribeEvent(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     fun interact(e: PlayerInteractEvent) {
-        if (e.hand == EquipmentSlot.HAND) {
-            if (e.action == Action.RIGHT_CLICK_BLOCK) {
-                e.isCancelled = true
-                val item = e.player.inventory.getItem(0)
-                if (item == null || item.isAir()) {
-                    e.player.sendWarn("Jd-Null")
-                    return
+        if (e.hand == EquipmentSlot.HAND && e.action == Action.RIGHT_CLICK_BLOCK) {
+            e.isCancelled = true
+            val item = e.player.inventory.getItem(0)
+            if (item == null || item.isAir()) {
+                e.player.sendWarn("Jd-Null")
+                return
+            }
+            when (e.player.inventory.itemInMainHand.type) {
+                Material.IRON_INGOT -> {
+                    val jd = Config.itemHash["iron"]!!["jd"]
+                    if (jd != null) {
+
+                    }
                 }
-                when (e.player.inventory.itemInMainHand.type) {
-                    Material.IRON_INGOT -> {
-                        val jd = Config.itemHash["iron"]!!["jd"]
-                        if (jd != null) {
+                Material.GOLD_INGOT -> {
 
-                        }
-                    }
-                    Material.GOLD_INGOT -> {
+                }
+                Material.DIAMOND -> {
 
-                    }
-                    Material.DIAMOND -> {
-
-                    }
                 }
             }
         }

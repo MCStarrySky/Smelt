@@ -45,44 +45,17 @@ class Config {
                 CONF.getConfigurationSection("items.$type")?.getKeys(false)?.forEach {
                     val check = CONF.getString("items.${type}.${it}.check")
                     val chance = CONF.getInt("items.${type}.${it}.chance")
+                    val getchance = CONF.getInt("items.${type}.${it}.getchance")
                     val max = CONF.getInt("items.${type}.${it}.max")
                     val item = CONF.getItemStack("items.${type}.${it}.item")
                     if (check != null && item != null) {
-                        val struct = Item(check, chance, max, item)
+                        val struct = Item(check, chance, getchance, max, item)
                         val typeHash = itemHash[type]
                         typeHash!![it] = struct
                         itemHash[type] = typeHash
                     }
                 }
             }
-            /*
-            CONF.getConfigurationSection("items.iron")?.getKeys(false)?.forEach {
-                val check = CONF.getString("items.iron.${it}.chance")
-                val chance = CONF.getInt("items.iron.${it}.chance")
-                val item = CONF.getItemStack("items.iron.${it}.item")
-                if (item != null) {
-                    val struct = Item(chance, item)
-                    irons[it] = struct
-                }
-            }
-            CONF.getConfigurationSection("items.gold")?.getKeys(false)?.forEach {
-                val chance = CONF.getInt("items.gold.${it}.chance")
-                val item = CONF.getItemStack("items.gold.${it}.item")
-                if (item != null) {
-                    val struct = Item(chance, item)
-                    golds[it] = struct
-                }
-            }
-            CONF.getConfigurationSection("items.diamond")?.getKeys(false)?.forEach {
-                val chance = CONF.getInt("items.diamond.${it}.chance")
-                val item = CONF.getItemStack("items.diamond.${it}.item")
-                if (item != null) {
-                    val struct = Item(chance, item)
-                    diamonds[it] = struct
-                }
-            }
-
-             */
         }
 
     }

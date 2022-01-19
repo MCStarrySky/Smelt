@@ -2,7 +2,7 @@ items:
   iron:
     luck:
       check: "§5+幸运石+"
-      chance: 18
+      getchance: 18
       item:
         material: IRON_INGOT
         name: "§3[幸运石]§f铁"
@@ -13,6 +13,7 @@ items:
     jd:
       check: "§5+鉴定石+"
       chance: 70
+      getchance:
       item:
         material: IRON_INGOT
         name: "§3[鉴定]§f铁"
@@ -25,7 +26,7 @@ items:
   gold:
     luck:
       check: "§5+幸运石+"
-      chance: 30
+      getchance: 30
       item:
         material: GOLD_INGOT
         name: "§3[幸运石]§f金"
@@ -36,6 +37,7 @@ items:
     jd:
       check: "§5+鉴定石+"
       chance: 70
+      getchance: 200
       max: 6
       item:
         material: GOLD_INGOT
@@ -49,7 +51,7 @@ items:
   diamond:
     luck:
       check: "§5+幸运石+"
-      chance: 50
+      getchance: 50
       item:
         material: DIAMOND
         name: "§3[幸运石]§f钻石"
@@ -60,6 +62,7 @@ items:
     jd:
       check: "§5+鉴定石+"
       chance: 70
+      getchance: 200
       max: 8
       item:
         material: DIAMOND
