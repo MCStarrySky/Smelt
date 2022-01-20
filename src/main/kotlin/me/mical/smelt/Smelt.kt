@@ -32,7 +32,6 @@ object Smelt : Plugin() {
 
 
     override fun onEnable() {
-        console().sendInfoMessage("&b您的机器识别码为: &3${Validate.buildMac()}&b." )
         console().sendInfo("Plugin-BuildMac", Validate.buildMac())
         if (!validate) {
             console().sendError("Plugin-Unvalidated")

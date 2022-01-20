@@ -76,12 +76,12 @@ object Jd {
                     for (i in 1..star) {
                         starString.append(Config.INSTANCE.star_empty)
                     }
-                    val meta = item.itemMeta
-                    meta?.lore = listOf("§${Config.star_color_levels[star]}${starString.toString()}")
-                    item.itemMeta = meta
                     itemTag.putDeep("smelt.jd", true)
                     itemTag.putDeep("smelt.empty", star)
                     itemTag.saveTo(item)
+                    val meta = item.itemMeta
+                    meta?.lore = listOf("§${Config.star_color_levels[star]}${starString.toString()}")
+                    item.itemMeta = meta
 
                     e.player.updateInventory()
                     e.player.sendInfo("Jd")
