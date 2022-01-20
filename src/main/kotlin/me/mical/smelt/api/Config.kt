@@ -96,7 +96,7 @@ class Config {
     }
 
     val dig_levels by lazy {
-        CONF.getStringList("dig_levels")
+        CONF.getStringList("dig.levels")
     }
 
 }
