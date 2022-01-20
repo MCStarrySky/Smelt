@@ -14,24 +14,33 @@ fun inChance(chance: Double): Boolean {
 
 fun getRandom(type: String): Item {
     val map = Config.itemHash[type]!!
+    println(map)
     val luck = map["luck"]!!.item
     val list = arrayListOf<Item>()
     val dataMap = hashMapOf<Item, Int>()
     var chanceTotal = 0
     map.values.forEach {
+        println(it)
         if (!it.item.isSimilar(luck)) {
+            println(it)
             list.add(it)
+            println(list)
             dataMap[it] = it.chance
+            println(dataMap)
             chanceTotal += it.chance
+            println(chanceTotal)
         }
     }
     var select = Random.nextInt(chanceTotal)
     for (item in list) {
+        println(item)
         select -= dataMap[item]!!
         if (select < 0) {
+            println(item)
             return item
         }
     }
+    println(list[list.size - 1])
     return list[list.size - 1]
 }
 

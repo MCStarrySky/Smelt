@@ -176,6 +176,7 @@ object Star {
                     itemTag.removeDeep("smelt.star")
                     itemTag.removeDeep("smelt.fill")
                     itemTag.removeDeep("smelt.empty")
+                    itemTag.saveTo(item)
                     val meta = item.itemMeta
                     meta?.lore = listOf()
                 }
