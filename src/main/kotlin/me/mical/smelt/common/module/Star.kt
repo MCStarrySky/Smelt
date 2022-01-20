@@ -35,7 +35,7 @@ object Star {
         val jd = Config.itemHash[type]!!["jd"]!!
         var tempStar = star
         // 是否鉴定过武器, 为 Null 的话就是鉴定操作
-        if (itemTag.getDeep("jd") == null) {
+        if (itemTag.getDeep("smelt.jd") == null) {
             if (player.inventory.itemInMainHand.amount <= 1) {
                 player.inventory.setItemInMainHand(null)
             } else {

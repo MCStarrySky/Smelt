@@ -23,12 +23,12 @@ object Items {
                     }
                     dynamic {
                         suggestion<ProxyPlayer> { _, context ->
-                            Config.itemHash[context.argument(0)]!!.keys.toList()
+                            Config.itemHash[context.argument(1)]!!.keys.toList()
                         }
                         dynamic {
                             execute<Player> { sender, context, argument ->
-                                val type = context.argument(0)
-                                val item = context.argument(1)
+                                val type = context.argument(1)
+                                val item = context.argument(2)
                                 val amount = argument.toInt()
                                 if (Config.itemHash.containsKey(type)) {
                                     if (Config.itemHash[type]!!.containsKey(item)) {

@@ -102,7 +102,7 @@ items:
       check: "§5+打孔石+"
       getchance: 35
       item:
-        material: IRON_INGOT
+        material: GOLD_INGOT
         name: "§3[打孔石]§f金"
         lore:
           - "§5+打孔石+"
@@ -139,7 +139,7 @@ items:
       check: "§5+打孔石+"
       getchance: 35
       item:
-        material: IRON_INGOT
+        material: DIAMOND
         name: "§3[打孔石]§f钻石"
         lore:
           - "§5+打孔石+"
