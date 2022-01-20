@@ -131,7 +131,7 @@ object Star {
                         }
                     }
                     val meta = item.itemMeta
-                    meta?.lore?.set(1, starString.toString())
+                    meta?.lore?.set(0, starString.toString())
                     item.itemMeta = meta
                     player.updateInventory()
                     player.sendInfo("Dig")
