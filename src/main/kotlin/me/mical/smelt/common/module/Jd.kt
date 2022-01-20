@@ -29,7 +29,7 @@ import kotlin.random.Random
  */
 object Jd {
 
-    //FIXME: 这块写的太tmd丢人了, 有空改改.
+    //FIXME: 后面写到的时候, 把所有操作孔位的代码写到一块, 直接调用函数.
     @SubscribeEvent(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     fun interact(e: PlayerInteractEvent) {
         if (e.hand == EquipmentSlot.HAND && e.action == Action.RIGHT_CLICK_BLOCK) {
@@ -77,11 +77,11 @@ object Jd {
                         starString.append(Config.INSTANCE.star_empty)
                     }
                     val meta = item.itemMeta
-                    meta?.lore = listOf(starString.toString())
+                    meta?.lore = listOf("§${Config.star_color_levels[star]}${starString.toString()}")
                     item.itemMeta = meta
                     itemTag.putDeep("smelt.jd", true)
                     itemTag.putDeep("smelt.empty", star)
-                    item.setItemTag(itemTag)
+                    itemTag.saveTo(item)
 
                     e.player.updateInventory()
                     e.player.sendInfo("Jd")

@@ -13,7 +13,10 @@ Plugin-Loading:
   - '&r'
   - '&7正在加载 &6Smelt... &8{0}'
   - '&r'
-Plugin-Enabled: '插件已加载，应用于 StarrySky 服务器。'
+Plugin-Unvalidated: '&c验证失败, 你可能在使用未经许可的插件副本.'
+Plugin-Validated: '&a验证成功, 你正在使用受官方认证的插件副本.'
+Plugin-BuildMac: '&b你的机器识别码为: &3{0}&b.'
+Plugin-Enabled: '&b插件已加载，应用于 StarrySky 服务器。'
 Plugin-Update:
   - '&8[&6宝石&8] &b更新 &8| &3更新 &a{0}&3 找到, 通过下方链接下载!'
   - '&bhttps://github.com/Micalhl/TrHologram/actions'

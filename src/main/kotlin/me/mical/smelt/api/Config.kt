@@ -20,6 +20,7 @@ class Config {
         private val diamonds = hashMapOf<String, Item>()
 
         val itemHash = hashMapOf<String, HashMap<String, Item>>()
+        val star_color_levels = hashMapOf<Int, String>()
 
         @Config(migrate = true, autoReload = true)
         lateinit var CONF: Configuration
@@ -31,12 +32,17 @@ class Config {
             itemHash["iron"] = irons
             itemHash["gold"] = golds
             itemHash["diamond"] = diamonds
-            loadItems()
+            load()
             CONF.onReload {
                 INSTANCE = me.mical.smelt.api.Config()
-                loadItems()
+                load()
                 console().sendInfo("Configuration-Auto-Reload")
             }
+        }
+
+        private fun load() {
+            loadItems()
+            loadStarLevel()
         }
 
         private fun loadItems() {
@@ -55,6 +61,15 @@ class Config {
                         itemHash[type] = typeHash
                     }
                 }
+            }
+        }
+
+        private fun loadStarLevel() {
+            star_color_levels.clear()
+            CONF.getStringList("star.color.levels").forEach {
+                val star = it.split(" ")[0].toInt()
+                val color = it.split(" ")[1]
+                star_color_levels[star] = color
             }
         }
 
