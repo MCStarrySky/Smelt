@@ -122,7 +122,7 @@ object Star {
                     itemTag.saveTo(item)
                     val starString = StringBuilder()
                     with(starString) {
-                        append("§${Config.star_color_levels[star]}")
+                        append("§${Config.star_color_levels[current + tempStar]}")
                         for (i in 1..itemTag.getDeep("smelt.fill").asInt()) {
                             append(Config.INSTANCE.star_fill)
                         }
@@ -161,7 +161,7 @@ object Star {
                     itemTag.saveTo(item)
                     val starString = StringBuilder()
                     with(starString) {
-                        append("§${Config.star_color_levels[star]}")
+                        append("§${Config.star_color_levels[current - tempStar]}")
                         for (i in 1..itemTag.getDeep("smelt.fill").asInt()) {
                             append(Config.INSTANCE.star_fill)
                         }
