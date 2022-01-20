@@ -11,7 +11,7 @@ import taboolib.common.platform.command.command
  * @author Ting
  * @date 2022/1/20 21:21
  */
-class Items {
+object Items {
 
     @Awake(LifeCycle.ENABLE)
     fun register() {
