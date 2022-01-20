@@ -2,6 +2,7 @@ package me.mical.smelt.common.module
 
 import me.mical.smelt.Smelt
 import me.mical.smelt.api.Config
+import me.mical.smelt.common.data.ItemType
 import me.mical.smelt.util.checkType
 import me.mical.smelt.util.getJDRandom
 import me.mical.smelt.util.getType
@@ -32,10 +33,10 @@ object Jd {
     @SubscribeEvent(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     fun interact(e: PlayerInteractEvent) {
         if (e.hand == EquipmentSlot.HAND && e.action == Action.RIGHT_CLICK_BLOCK) {
-            e.isCancelled = true
             val item = e.player.inventory.getItem(0)
             val hand = e.player.inventory.itemInMainHand
             if (isJd(hand)) {
+                e.isCancelled = true
                 if (item == null || item.isAir()) {
                     e.player.sendWarn("Jd-Null")
                     return
@@ -43,7 +44,7 @@ object Jd {
                 val type = getType(hand.type)
                 val jd = Config.itemHash[type]!!["jd"]
                 if (jd != null) {
-                    if (!checkType(hand, item)) {
+                    if (!checkType(hand, item) || !ItemType.JD[type]!!.contains(item.type.name)) {
                         e.player.sendError("Jd-Err", hand.itemMeta!!.displayName, item.getI18nName(e.player))
                         return
                     }
@@ -64,24 +65,9 @@ object Jd {
 
     private fun isJd(item: ItemStack): Boolean {
         if (item.itemMeta == null || item.itemMeta!!.lore == null || item.itemMeta!!.lore!!.isEmpty()) return false
-        when (item.type) {
-            Material.IRON_INGOT -> {
-                val jd = Config.itemHash["iron"]!!["jd"] ?: return false
-                if (!item.itemMeta!!.lore!!.contains(jd.check)) return false
-                return true
-            }
-            Material.GOLD_INGOT -> {
-                val jd = Config.itemHash["gold"]!!["jd"] ?: return false
-                if (!item.itemMeta!!.lore!!.contains(jd.check)) return false
-                return true
-            }
-            Material.DIAMOND -> {
-                val jd = Config.itemHash["diamond"]!!["jd"] ?: return false
-                if (!item.itemMeta!!.lore!!.contains(jd.check)) return false
-                return true
-            }
-        }
-        return false
+        val type = getType(item.type)
+        val jd = Config.itemHash[type]!!["jd"] ?: return false
+        return item.itemMeta!!.lore!!.contains(jd.check)
     }
 
 }

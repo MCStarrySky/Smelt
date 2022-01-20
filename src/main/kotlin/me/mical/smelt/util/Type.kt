@@ -13,5 +13,5 @@ fun checkType(item1: ItemStack, item2: ItemStack): Boolean {
 
 fun getType(material: Material): String {
     val name = material.name
-    return if (name.contains("IRON")) "iron" else if (name.contains("DIAMOND")) "diamond" else "gold"
+    return if (name.contains("IRON")) "iron" else if (name.contains("DIAMOND")) "diamond" else if (name.contains("GOLD")) "gold" else "unknown"
 }

@@ -91,4 +91,12 @@ class Config {
         CONF.getStringList("jd.levels")
     }
 
+    val dig_tipLevel by lazy {
+        CONF.getInt("dig.tipLevel")
+    }
+
+    val dig_levels by lazy {
+        CONF.getStringList("dig_levels")
+    }
+
 }
