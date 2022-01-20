@@ -29,7 +29,6 @@ import kotlin.random.Random
  */
 object Jd {
 
-    //FIXME: 后面写到的时候, 把所有操作孔位的代码写到一块, 直接调用函数.
     @SubscribeEvent(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     fun interact(e: PlayerInteractEvent) {
         if (e.hand == EquipmentSlot.HAND && e.action == Action.RIGHT_CLICK_BLOCK) {
@@ -57,38 +56,7 @@ object Jd {
                         e.player.sendError("Jd-Effect")
                         return
                     }
-                    if (e.player.inventory.itemInMainHand.amount <= 1) {
-                        e.player.inventory.setItemInMainHand(null)
-                    } else {
-                        e.player.inventory.itemInMainHand.amount = e.player.inventory.itemInMainHand.amount - 1
-                    }
-                    if (Random.nextInt(100) >= jd.chance) {
-                        e.player.updateInventory()
-                        e.player.sendLang("Jd-Fail")
-                        e.player.playSound(e.player.location, Sound.BLOCK_METAL_BREAK, 1.8f, 1.0f)
-                        return
-                    }
-                    var star = getJDRandom()
-                    if (star > jd.max) {
-                        star = jd.max
-                    }
-                    val starString = StringBuilder()
-                    for (i in 1..star) {
-                        starString.append(Config.INSTANCE.star_empty)
-                    }
-                    itemTag.putDeep("smelt.jd", true)
-                    itemTag.putDeep("smelt.empty", star)
-                    itemTag.saveTo(item)
-                    val meta = item.itemMeta
-                    meta?.lore = listOf("§${Config.star_color_levels[star]}${starString.toString()}")
-                    item.itemMeta = meta
-
-                    e.player.updateInventory()
-                    e.player.sendInfo("Jd")
-                    if (star >= Config.INSTANCE.jd_tipLevel) {
-                        Smelt.plugin.server.broadcastMessage(console().asLangText("Jd1", e.player.name, star, item.getI18nName()))
-                    }
-                    e.player.playSound(e.player.location, Sound.BLOCK_ANVIL_HIT, 2.0f, 1.0f)
+                    Star.setEmptyStar(item, 0, e.player)
                 }
             }
         }
