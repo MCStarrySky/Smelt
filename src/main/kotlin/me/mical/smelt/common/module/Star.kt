@@ -131,7 +131,9 @@ object Star {
                         }
                     }
                     val meta = item.itemMeta
-                    meta?.lore?.set(0, starString.toString())
+                    val lore = meta?.lore
+                    lore?.set(0, starString.toString())
+                    meta?.lore = lore
                     item.itemMeta = meta
                     player.updateInventory()
                     player.sendInfo("Dig")
@@ -168,7 +170,9 @@ object Star {
                         }
                     }
                     val meta = item.itemMeta
-                    meta?.lore?.set(0, starString.toString())
+                    val lore = meta?.lore
+                    lore?.set(0, starString.toString())
+                    meta?.lore = lore
                     item.itemMeta = meta
                 } else {
                     itemTag.removeDeep("smelt.jd")
@@ -179,6 +183,7 @@ object Star {
                     itemTag.saveTo(item)
                     val meta = item.itemMeta
                     meta?.lore = listOf()
+                    item.itemMeta = meta
                 }
                 player.updateInventory()
                 player.sendError("Dig-Fail")
