@@ -64,7 +64,7 @@ object Star {
             itemTag.saveTo(item)
             val starString = StringBuilder()
             with(starString) {
-                append("§${Config.star_color_levels[star]}")
+                append("§${Config.star_color_levels[tempStar]}")
                 for (i in 1..itemTag.getDeep("smelt.star").asInt()) {
                     append(Config.INSTANCE.star_empty)
                 }
@@ -74,7 +74,7 @@ object Star {
             item.itemMeta = meta
             player.updateInventory()
             player.sendInfo("Jd")
-            if (star >= Config.INSTANCE.jd_tipLevel) {
+            if (tempStar >= Config.INSTANCE.jd_tipLevel) {
                 Smelt.plugin.server.broadcastMessage(
                     console().asLangText(
                         "Jd1",
