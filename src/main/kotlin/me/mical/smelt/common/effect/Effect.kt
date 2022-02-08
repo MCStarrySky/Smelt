@@ -17,4 +17,6 @@ interface Effect {
 
     fun onAttacked(event: EntityDamageByEntityEvent, data: Int, item: ItemStack)
 
+    fun setEffectData(item: ItemStack, data: Int): ItemStack
+
 }

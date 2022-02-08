@@ -99,4 +99,8 @@ class Config {
         CONF.getStringList("dig.levels")
     }
 
+    val smith_need by lazy {
+        CONF.getInt("smith.need")
+    }
+
 }
