@@ -1,0 +1,161 @@
+
+
+#         Powered by TabooLib 6.1         #
+
+
+luck:
+  iron:
+    check: "§5+幸运石+"
+    chance: 18
+    item:
+      material: IRON_INGOT
+      name: "§3[幸运石]§f铁"
+      lore:
+        - "§5+幸运石+"
+        - "§3可以获得各种特殊的石头"
+        - "§7(右键任意方块使用)"
+  gold:
+    check: "§5+幸运石+"
+    chance: 30
+    item:
+      material: GOLD_INGOT
+      name: "§3[幸运石]§f金"
+      lore:
+        - "§5+幸运石+"
+        - "§3可以获得各种特殊的石头"
+        - "§7(右键任意方块使用)"
+  diamond:
+    check: "§5+幸运石+"
+    chance: 50
+    item:
+      material: DIAMOND
+      name: "§3[幸运石]§f钻石"
+      lore:
+        - "§5+幸运石+"
+        - "§3可以获得各种特殊的石头"
+        - "§7(右键任意方块使用)"
+
+jd:
+  iron:
+    check: "§5+鉴定石+"
+    chance: 200
+    max: 4
+    item:
+      material: IRON_INGOT
+      name: "§3[鉴定石]§f铁"
+      lore:
+        - "§5+鉴定石+"
+        - "§3能鉴定铁制武器装备,上限§54§3星"
+        - "§7(工具无法鉴定)"
+        - "§7(待鉴定物放物品栏第一格)"
+        - "§7(右键任意方块使用)"
+    params:
+      chance: 70
+      target:
+        - IRON_SWORD
+        - IRON_HELMET
+        - IRON_CHESTPLATE
+        - IRON_LEGGINGS
+        - IRON_BOOTS
+  gold:
+    check: "§5+鉴定石+"
+    chance: 200
+    max: 6
+    item:
+      material: GOLD_INGOT
+      name: "§3[鉴定石]§f金"
+      lore:
+        - "§5+鉴定石+"
+        - "§3能鉴定金制,链甲,弓武器装备,上限§56§3星"
+        - "§7(工具无法鉴定)"
+        - "§7(待鉴定物放物品栏第一格)"
+        - "§7(右键任意方块使用)"
+    params:
+      chance: 70
+      target:
+        - BOW
+        - GOLDEN_SWORD
+        - GOLDEN_HELMET
+        - GOLDEN_CHESTPLATE
+        - GOLDEN_LEGGINGS
+        - GOLDEN_BOOTS
+        - CHAINMAIL_HELMET
+        - CHAINMAIL_CHESTPLATE
+        - CHAINMAIL_LEGGINGS
+        - CHAINMAIL_BOOTS
+  diamond:
+    check: "§5+鉴定石+"
+    chance: 200
+    max: 8
+    item:
+      material: DIAMOND
+      name: "§3[鉴定石]§f钻石"
+      lore:
+        - "§5+鉴定石+"
+        - "§3能鉴定钻石武器装备,上限§58§3星"
+        - "§7(工具无法鉴定)"
+        - "§7(待鉴定物放物品栏第一格)"
+        - "§7(右键任意方块使用)"
+    params:
+      chance: 70
+      target:
+        - DIAMOND_SWORD
+        - DIAMOND_HELMET
+        - DIAMOND_CHESTPLATE
+        - DIAMOND_LEGGINGS
+        - DIAMOND_BOOTS
+
+dig:
+  iron:
+    check: "§5+打孔石+"
+    chance: 35
+    item:
+      material: IRON_INGOT
+      name: "§3[打孔石]§f铁"
+      lore:
+        - "§5+打孔石+"
+        - "§3可以给铁制武器装备打孔"
+        - "§3打孔成功升星,失败降星,慎用!!!"
+        - "§7(将要打孔的物品放物品栏第一格)"
+        - "§7(右键任意方块使用)"
+  gold:
+    check: "§5+打孔石+"
+    chance: 35
+    item:
+      material: GOLD_INGOT
+      name: "§3[打孔石]§f金"
+      lore:
+        - "§5+打孔石+"
+        - "§3可以给金制,链甲,弓武器装备打孔"
+        - "§3打孔成功升星,失败降星,慎用!!!"
+        - "§7(将要打孔的物品放物品栏第一格)"
+        - "§7(右键任意方块使用)"
+  diamond:
+    check: "§5+打孔石+"
+    chance: 35
+    item:
+      material: DIAMOND
+      name: "§3[打孔石]§f钻石"
+      lore:
+        - "§5+打孔石+"
+        - "§3可以给钻石武器装备打孔"
+        - "§3打孔成功升星,失败降星,慎用!!!"
+        - "§7(将要打孔的物品放物品栏第一格)"
+        - "§7(右键任意方块使用)"
+          
+# TODO
+smith:
+  diamond:
+    check: "§5+锻造石+"
+    chance: 5
+    item:
+      material: DIAMOND
+      name: "§3[锻造石]§f钻石"
+      lore:
+        - "§5+锻造石+"
+        - "§3可以给钻石武器装备锻造成下界合金材质"
+        - "§3一次需要花费§55§3个"
+        - "§7(工具无法锻造)"
+        - "§7(升级后无法打孔镶嵌绑定, 无法融入闪电石)"
+        - "§7(将原物品放在锻造台第一格)"
+        - "§7(锻造石放在锻造台第二格)"

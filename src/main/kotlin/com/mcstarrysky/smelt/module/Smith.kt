@@ -1,6 +1,8 @@
-package me.mical.smelt.common.module
+package com.mcstarrysky.smelt.module
 
-import me.mical.smelt.api.Config
+import com.mcstarrysky.smelt.ItemType
+import com.mcstarrysky.smelt.SmeltItem
+import com.mcstarrysky.smelt.SmeltSettings
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.inventory.SmithItemEvent
@@ -19,11 +21,11 @@ import taboolib.platform.util.sendInfo
 object Smith {
 
     @SubscribeEvent(priority = EventPriority.HIGHEST, ignoreCancelled = true)
-    fun smith(e: SmithItemEvent) {
+    fun e(e: SmithItemEvent) {
         e.whoClicked as Player
-        val smithItem = Config.itemHash["diamond"]!!["smith"] ?: return
+        val smithItem = SmeltItem["smith"]?.registry?.get(ItemType.DIAMOND) ?: return
         val smith = smithItem.item.clone()
-        val need = Config.INSTANCE.smith_need
+        val need = SmeltSettings.smith_need
 
         val recipe = e.inventory.recipe as SmithingRecipe
         val item = (recipe.base as RecipeChoice.ExactChoice).itemStack.clone()
@@ -46,5 +48,4 @@ object Smith {
             }
         }
     }
-
 }
